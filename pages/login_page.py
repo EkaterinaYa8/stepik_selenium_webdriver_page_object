@@ -10,8 +10,7 @@ class LoginPage(BasePage):
         self.should_be_register_form()
 
     def should_be_login_url(self):
-        login_in_url_list = re.findall('accounts/(\w+)', self.browser.current_url)
-        print(login_in_url_list)
+        login_in_url_list = re.findall(r'accounts/(\w+)', self.browser.current_url)
 
         assert len(login_in_url_list) == 1, \
             'URL страницы входа и регистрации должен содержать в конце login.' \
