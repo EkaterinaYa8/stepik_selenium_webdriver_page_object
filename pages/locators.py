@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 class BasePageLocators():
     LOGIN_LINK = (By.XPATH, '//a[@id="login_link"]')
     VIEW_BASKET_BUTTON = (By.XPATH, '//div[@class="basket-mini pull-right hidden-xs"]/span[@class="btn-group"]')
+    USER_ICON = (By.XPATH, '//i[@class="icon-user"]')
 
 
 class MainPageLocators():
@@ -33,7 +34,9 @@ class ProductPageLocators():
     PRODUCT_INSTOCK_AVAILABILITY = (By.XPATH, '//div[@class="col-sm-6 product_main"]/p[@class="instock availability"]')
     PRODUCT_WRITE_REVIEW_BUTTON = (By.XPATH, '//div[@class="col-sm-6 product_main"]/p[3]/a')
     PRODUCT_ADD_TO_BASKET_BUTTON = (By.XPATH, '//form[@id="add_to_basket_form"]/button[@type="submit"]')
-    PRODUCT_ADD_TO_WISH_LIST = (By.XPATH, '//button[@class="btn btn-lg btn-wishlist"]')
+
+    PRODUCT_ADD_TO_WISH_LIST_XPATH = '//button[@class="btn btn-lg btn-wishlist"]'
+
     PRODUCT_DESCRIPTION = (By.XPATH, '//div[@id="product_description"]')
     PRODUCT_DESCRIPTION_PARAGRAPH = (By.XPATH, '//article[@class="product_page"]/p')
     PRODUCT_INFORMATION = (By.XPATH, '//article[@class="product_page"]/div[3]')
@@ -55,3 +58,12 @@ class ProductPageLocators():
 class BasketPageLocators():
     BASKET_PRODUCT_ROW = (By.XPATH, '//div[@class="basket-items"]')
     BASKET_EMPTY_MSG = (By.XPATH, '//div[@id="content_inner"]/p')
+
+
+
+
+
+
+
+
+

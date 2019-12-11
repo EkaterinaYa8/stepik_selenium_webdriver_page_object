@@ -1,9 +1,23 @@
 from .base_page import BasePage
-from .locators import LoginPageLocators
+from .locators import LoginPageLocators, BasePageLocators
 import re
 
 
 class LoginPage(BasePage):
+    def register_new_user(self, email, password):
+        self.fill_in_field(*LoginPageLocators.REGISTRATION_USER_NAME, email)
+        self.fill_in_field(*LoginPageLocators.REGISTRATION_PASSWORD_1, password)
+        self.fill_in_field(*LoginPageLocators.REGISTRATION_PASSWORD_2, password)
+        self.click_on_element(*LoginPageLocators.REGISTRATION_BUTTON)
+
+    def login(self, email, password):
+        self.fill_in_field(*LoginPageLocators.LOGIN_USER_NAME, email)
+        self.fill_in_field(*LoginPageLocators.LOGIN_PASSWORD, password)
+        self.click_on_element(*LoginPageLocators.LOGIN_BUTTON)
+
+    def should_be_login_icon(self):
+        self.is_element_present(*BasePageLocators.USER_ICON)
+
     def should_be_login_page(self):
         self.should_be_login_url()
         self.should_be_login_form()

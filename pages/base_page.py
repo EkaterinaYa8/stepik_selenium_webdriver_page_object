@@ -21,6 +21,11 @@ class BasePage():
     def element(self, by, xpath):
         return self.browser.find_element(by, xpath)
 
+    def fill_in_field(self, by, xpath, text):
+        field = self.browser.find_element(by, xpath)
+        field.clear()
+        field.send_keys(text)
+
     def go_to_login_page(self):
         login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         login_link.click()
