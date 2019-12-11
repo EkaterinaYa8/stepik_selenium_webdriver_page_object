@@ -14,7 +14,8 @@ class LoginPage(BasePage):
 
         assert len(login_in_url_list) == 1, \
             'URL страницы входа и регистрации должен содержать в конце login.' \
-            'Ошибка парсинга URL на наличие "login" после "accounts/", возможно, URL был изменён.'
+            'Ошибка парсинга URL на наличие "login" после "accounts/".\n' \
+            'Ожидается, что URL содержит в конце строку формата: "accounts/[A-Z]", возможно, URL был изменён.'
 
         assert login_in_url_list[0] == 'login', 'URL страницы входа и регистрации должен содержать в конце login.'
 
