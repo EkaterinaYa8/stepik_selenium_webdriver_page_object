@@ -11,9 +11,9 @@ class BasePage():
         self.url = url
         self.browser.implicitly_wait(timeout)
 
-    def click_on_the_button(self, by, xpath):
-        button = self.browser.find_element(by, xpath)
-        button.click()
+    def click_on_element(self, by, xpath):
+        element = self.browser.find_element(by, xpath)
+        element.click()
 
     def elements_list(self, xpath):
         return self.browser.find_elements_by_xpath(xpath)
@@ -24,6 +24,9 @@ class BasePage():
     def go_to_login_page(self):
         login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         login_link.click()
+
+    def go_to_basket_page(self):
+        self.click_on_element(*BasePageLocators.VIEW_BASKET_BUTTON)
 
     def is_element_present(self, how, what):
         try:
