@@ -26,9 +26,11 @@ class ProductPage(BasePage):
             assert self.is_element_present(*ProductPageLocators.PRODUCT_ADD_TO_BASKET_BUTTON), \
                 f'На странице товара с наименованием: "{product_name}" со статусом "в наличии" отсутствует кнопка ' \
                 f'"Добавить в корзину".'
-            assert self.is_element_present(*ProductPageLocators.PRODUCT_ADD_TO_WISH_LIST), \
+
+            assert self.elements_list(ProductPageLocators.PRODUCT_ADD_TO_WISH_LIST_XPATH) != 0, \
                 f'На странице товара с наименованием: "{product_name}" со статусом "в наличии" отсутствует кнопка\n' \
                 f'"Добавить к списку желаемого".'
+
             assert self.is_element_present(*ProductPageLocators.PRODUCT_DESCRIPTION), \
                 f'На странице товара с наименованием: "{product_name}" отсутствует элемент размещения заголовка ' \
                 f'"Описание товара".'
