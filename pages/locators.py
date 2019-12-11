@@ -3,7 +3,11 @@ from selenium.webdriver.common.by import By
 
 class BasePageLocators():
     LOGIN_LINK = (By.XPATH, '//a[@id="login_link"]')
-    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    VIEW_BASKET_BUTTON = (By.XPATH, '//div[@class="basket-mini pull-right hidden-xs"]/span[@class="btn-group"]')
+
+
+class MainPageLocators():
+    ALL_PRODUCTS_LINK = (By.XPATH, '//li[@class="dropdown active open"]/ul[@class="dropdown-menu"]/li[1]/a[@href]')
 
 
 class LoginPageLocators():
@@ -15,6 +19,10 @@ class LoginPageLocators():
     REGISTRATION_PASSWORD_1 = (By.XPATH, '//input[@name="registration-password1"]')
     REGISTRATION_PASSWORD_2 = (By.XPATH, '//input[@name="registration-password2"]')
     REGISTRATION_BUTTON = (By.XPATH, '//button[@name="registration_submit"]')
+
+
+class AllProductsPageLocators():
+    PRODUCT_NAME_FROM_ALL_PRODUCTS_PAGE = (By.XPATH, '//li[1]/article/h3/a')
 
 
 class ProductPageLocators():
@@ -42,3 +50,8 @@ class ProductPageLocators():
 
     def product_cost_from_alert_msg(self, num):
         return (By.XPATH, f'//div[{num}]/div[@class="alertinner "]/p/strong')
+
+
+class BasketPageLocators():
+    BASKET_PRODUCT_ROW = (By.XPATH, '//div[@class="basket-items"]')
+    BASKET_EMPTY_MSG = (By.XPATH, '//div[@id="content_inner"]/p')
