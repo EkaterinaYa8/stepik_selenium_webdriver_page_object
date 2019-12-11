@@ -3,6 +3,8 @@ from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
+    def add_product_to_basket(self):
+        self.click_on_element(*ProductPageLocators.PRODUCT_ADD_TO_BASKET_BUTTON)
 
     def should_be_product_form(self):
         assert self.is_element_present(*ProductPageLocators.PRODUCT_NAME),\
@@ -46,13 +48,6 @@ class ProductPage(BasePage):
                 f'На странице товара с наименованием: "{product_name}" отсутствует элемент размещения заголовка ' \
                 f'"Отзывы Клиентов".'
 
-    def should_not_be_success_message(self):
-        product_name = self.element(*ProductPageLocators.PRODUCT_NAME).text
-
-        assert self.is_not_element_present(*ProductPageLocators.product_alert_msg(self, '1')), \
-            f'На странице товара с наименованием: "{product_name}"\n отображается сообщение об успешном добавлении ' \
-            f'в корзину, которого быть не должно.'
-
     def should_disappeared_success_message(self):
         product_name = self.element(*ProductPageLocators.PRODUCT_NAME).text
 
@@ -60,8 +55,12 @@ class ProductPage(BasePage):
             f'На странице товара с наименованием: "{product_name}"\n отображается сообщение об успешном добавлении ' \
             f'в корзину, которое должно было исчезнуть.'
 
-    def add_product_to_basket(self):
-        self.click_on_the_button(*ProductPageLocators.PRODUCT_ADD_TO_BASKET_BUTTON)
+    def should_not_be_success_message(self):
+        product_name = self.element(*ProductPageLocators.PRODUCT_NAME).text
+
+        assert self.is_not_element_present(*ProductPageLocators.product_alert_msg(self, '1')), \
+            f'На странице товара с наименованием: "{product_name}"\n отображается сообщение об успешном добавлении ' \
+            f'в корзину, которого быть не должно.'
 
     def successful_add_to_basket(self):
         product_name = self.element(*ProductPageLocators.PRODUCT_NAME).text
