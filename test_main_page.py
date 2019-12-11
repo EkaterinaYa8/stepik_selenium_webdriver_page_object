@@ -18,7 +18,7 @@ class TestLoginFromMainPage():
         page.open()
         page.should_be_login_link()
 
-    def test_guest_can_go_to_login_page(self, browser, link):
+    def test_guest_can_go_to_login_page_from_main_page(self, browser, link):
         page = MainPage(browser, link)
         page.open()
         page.go_to_login_page()
@@ -33,7 +33,7 @@ class TestLoginFromMainPage():
         basket_page.should_not_be_product_in_basket()
         basket_page.should_be_empty_basket_message()
 
-    def test_guest_cant_see_product_in_basket_opened_from_product_page(self, browser, link):
+    def test_guest_cant_see_product_in_basket_opened_from_main_page(self, browser, link):
         page = MainPage(browser, link)
         page.open()
         page.go_to_all_products_page()
